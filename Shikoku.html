@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四國へ！</title>
+    <link rel="ICON"  href="./JPimg/ICON/LOGO-ICON.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<style type="text/css">
+  body{font-family: 游明朝;}
+  #bgWrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url(./JPimg/ICON/texture.png);
+    z-index: -1;
+  }
+  header div img{
+    height:400px ;width:500px ; 
+  }
+  #headerbg{
+    height:90vh;width: 100%; object-fit:cover;
+  }
+  .headertext{
+    left: 15%;
+    top: 5%;
+  }
+  article{
+    margin-top: 10em;
+    padding-top: 5em; 
+  }
+  .nav2{
+    background-color: rgba(220, 184, 121, 0.8);
+  }
+  .nav2 button{
+    font-size: 1.5vw;
+    font-weight: 900;
+    background-color: transparent;
+    color: white;
+    border-radius: 30px;
+    border: 1px solid white;
+    padding: 5px 30px;
+  }
+  /* title */
+  #title0, #title, #title2{
+    width: 90%;
+    clip-path: inset(0px 100% 0px 0px);
+    margin: 5em auto;
+    color: white;
+    position: relative; 
+    text-align: center;
+    transition: all 2s ease;
+  }
+  #title0 h1{
+    font-size: 5vw;
+    position: absolute;
+    top: 25%;
+    left: 30%;
+  }
+  #title  h1{
+    font-size: 5vw;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+  }
+  #title2 h1{
+    font-size: 5vw;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+  }
+  :root{
+    scroll-padding-top: 80px;
+  }
+  #food{
+    display: none;
+  }
+  section{
+    margin-top: 10em;
+  }
+
+  /* NavBar */
+  .menu{
+    /* background-color:white ; */
+    display: flex;
+    height: 80px;
+    width: 100%;
+  }
+  .logo{
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+  }
+  .item{
+    text-decoration: none;
+    color: white;
+    font-weight:900;
+    font-size: 26px;
+    border-right:  1px solid white;
+    text-align: center;
+    flex-grow: 1;
+   
+  }
+  .menuitem{
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+    width: 100%;
+  }
+  .menuitem  a::after {
+    content:'';
+    margin-left: 25%;
+    width: 0;
+    display: block;
+    height: 2px;
+    background-color: white;
+    transition:width .2s ease-in;
+  }
+  .menuitem  a:hover::after {
+    width: 50%;
+  }
+  .showmenu{
+    display: none;
+    margin: auto;
+    font-size: 40px;
+    color: white;
+  }
+  /* footer */
+  #footericon{
+    display: flex;
+    align-items: center;
+  }
+  #footericon img{
+    width: 75%;
+  }
+  #footerbtn {
+    display: flex;
+    flex-direction: column;
+  }
+  footer button{
+    font-size: 16px;
+    background-color: white;
+    border: none;
+    color: gray;
+    border-radius: 10px;
+  }
+  #footerline{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+  }
+  @media (max-width: 576px){
+    article{
+      margin-top: 0em;
+      padding-top: 0em; 
+    }
+    section{
+      margin-top: 0em;
+    }
+    .showmenu{
+      margin-right: 50px;
+      display: block;
+    }
+    .menuitem{
+      background-color: #20604f;
+      position: absolute;
+      top: 80px;
+      text-align: center;
+      display:block;
+      z-index: 10;
+      max-height:0px;
+      overflow: hidden;
+      transition:max-height 1s ;
+    }
+   .item{
+      display: block;
+      color:white;
+      padding: 10px 0;
+      border-bottom:1px solid white;
+    }
+    .menu-show {
+          max-height: 500px;
+    }
+   
+  }
+   
+</style>
+<body>
+  <div id="bgWrap" style="background-color: #DAC9A6;"></div>
+      <!-- Nav -->
+      <nav class="navigation">
+        <div class="menu bg-dark">
+        <a class="logo" href="./AHomeWeb.html"><img src="./JPimg/ICON/LOGO-ICON.png"></a>
+          <div class="menuitem" id="menuitem">
+            <a class="item" href="./Hokkaido.html">北海道</a>
+            <a class="item" href="./Honshu.html">本州</a>
+            <a class="item" href="./Shikoku.html">四國</a>
+            <a class="item" href="./Kyushu.html">九州</a>
+          </div>
+          <span class="showmenu" id="showmenu" >&#9776;</span>
+        </div>
+      </nav>
+
+      <!-- header -->
+      <header class="w-100 position-relative">
+        <div class="position-absolute headertext">
+          <img class="img-fluid" src="./JPimg/四國地方/四國 標題.png">
+        </div>
+        <img id="headerbg" src="./JPimg/四國地方/高知県 春のカルスト台地.jpg">
+      </header>
+
+      <!-- Nav2 -->
+      <nav class="nav2 w-100 p-2 sticky-top d-flex justify-content-evenly text-nowrap">
+          <button onclick="document.location='#title0'">認識四國</button>
+          <button onclick="showview();document.location='#view'">推薦景色</button>
+          <button onclick="showfood();document.location='#food'">推薦美食</button>
+      </nav>
+
+      <!-- Title0 -->
+      <div id="title0">
+        <h1 class="fw-bold">ようこそ四國へ！</h1>
+        <img class="w-100" src="./JPimg/ICON/MainTitleBrush.png" alt="">
+      </div>
+
+      <!-- Map -->
+      <article id="hokkaido" class="container">
+        <div class="row">
+          <div class="col-sm-5">
+            <img class="img-fluid" src="./JPimg/四國地方/四國地圖.png" alt="">
+          </div>
+          <div class="col-sm-7">
+            <div>
+              <h1 class="lh-lg fw-bold">關於四國 | しこく</h1>
+              <h3 class="lh-base" >四國位於寧靜的瀨戶內海與充滿活力的太平洋的環抱之間，擁有觀光客所渴望的一切：大海、山巒、河流、美食、傳統文化以及悠長又迷人的歷史背景。
+                我們深信您在四國一定可以發現到許多吸引您的景點，並留下終生的美好回憶。
+              </h3>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- TitleView -->
+      <div id="view">
+        <div id="title">
+          <h1 class="fw-bold">推薦景點</h1>
+          <img class="w-100" src="./JPimg/ICON/MainTitleBrush.png" alt="">
+        </div>
+        <section class="container">
+          <div class="row my-5">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/四國地方/愛媛県 道後温泉.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">道後溫泉</h2>
+              <h4 class="lh-base">道後溫泉本館，是號稱日本最古老之温泉「道後溫泉」的象徵，是一座以「神之湯」為代表的温泉設施。
+                道後溫泉本館最大的魅力在於，它是日本第一個以公眾浴場被指定為國家重要文化財，卻沒有因此而轉型成為博物館，仍然繼續營業的溫泉。
+                並榮獲平成21年(2009)出版「米其林綠色指南‧日本」三顆星的最高評價。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5 flex-row-reverse">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/四國地方/徳島県 鳴門海峡の渦潮.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">鳴門海峡</h2>
+              <h4 class="lh-base">鳴門海峽寬 1.3 公里，位於德島縣 的鳴門 和兵庫縣 的淡路島 之間，受到快速流動的洋流所驅動。
+                瀨戶內海的海水在漲潮和退潮時，會與紀伊水道的太平洋逆流相撞，並創造出自然界最獨特的現象之一：鳴門漩渦。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/四國地方/愛媛県 今治城.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">今治城</h2>
+              <h4 class="lh-base">它也是日本最大的海上城堡，在三重護城河周圍擁有強大的船入（港口）。時至今日，城堡中央的護城河和石牆已幾乎完全消失，修復後的天守閣、炮樓、城門依然美麗。
+                館內是博物館，從天守閣頂層的展望台可以欣賞到瀨戶內海的壯麗景色。海水進出、魚類洄游的巨大護城河也是一大亮點。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5 flex-row-reverse">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/四國地方/香川県 金刀比羅宮.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">金刀比羅宮</h2>
+              <h4 class="lh-base">有「金比羅」暱稱的神社，也是日本全國各地冠有「金刀比羅」或「金比羅」之名神社的總本宮，自古以來就是海神信仰的中心。 
+                石階長達1368階，下半部石階周邊有咖啡廳、茶館、禮品店及烏龍麵店林立，非常熱鬧。</h4>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- Title2Food -->
+      <div id="food">
+        <div id="title2">
+          <h1 class="fw-bold">推薦美食</h1>
+          <img class="w-100" src="./JPimg/ICON/MainTitleBrush.png" alt="">
+        </div>
+        <section class="container">
+          <div class="row my-5">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/四國地方/food/鰹魚半敲燒.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold">鰹魚半敲燒</h2>
+              <h4 class="lh-lg">高知縣的代表性鄉土料理「鰹魚半敲燒」。這是在烘烤新鮮鰹魚表面後，再切薄品嚐的一道料理。最與眾不同之處在於它的烘烤方法。首先點燃一把稻草，再豪爽地拿來火烤鰹魚表面，
+                烤到表面焦香、內裡多汁就完成了。以滿滿的大蒜與蔥作為佐料，搭配醋味醬油沾醬，或單純沾鹽品嚐。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5 flex-row-reverse">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/四國地方/food/德島拉麵.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold">德島拉麵</h2>
+              <h4 class="lh-lg">德島縣當地的美食「德島拉麵」。以醬油調味豬骨湯底而成的焦褐色湯頭，配上甜甜辣辣的煮豬肉，
+                再用生雞蛋點綴，非常有特色。濃郁的風味配白飯一起吃也非常對味。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/四國地方/food/鯛魚飯（鯛めし）.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold">鯛魚飯</h2>
+              <h4 class="lh-lg">愛媛縣南予地方「宇和島」區的鄉土料理。將新鮮的鯛魚削成薄片後，浸漬於醬油・味淋・日式高湯・白芝麻等製成的調味液中
+                ，再配生蛋汁拌熱飯享用。飯上會撒上愛媛縣名產的橘子、柚子皮、小片海苔絲。</h4>
+            </div>
+          </div>
+ 
+          <div class="row my-5 flex-row-reverse">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/四國地方/food/讚岐烏龍麵.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold">讚岐烏龍麵</h2>
+              <h4 class="lh-lg">讚岐烏龍麵是香川縣的名產，嚼勁十足的麵身非常有特色。縣內開設許多烏龍麵專賣店，近年來以數間店鋪為中心，掀起一股步行賞味的熱潮。依店面不同，
+                有自助式店面、也有附設餐飲空間於製麵所的形式，充滿各種個性。就連吃法也變化豐富。</h4>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- footer -->
+      <footer class=" bg-dark text-light p-2 w-100">
+        <div id="footerline" class="d-flex justify-content-around text-nowrap mb-3">
+            <div><img src="./JPimg/ICON/LOGO-ICON.png">
+              <span class="ms-1 fw-bold">千島觀光</span>
+            </div>
+            <div id="footericon"><a href=""><img src="./JPimg/ICON/footer icon.png"></a></div>
+            <div id="footerbtn" class="d-flex">
+                <button class="my-2"><i class="bi bi-question-circle-fill me-2"></i>常見問題</button>
+                <button class="my-2"><i class="bi bi-envelope-fill me-2"></i>聯絡我們</button>  
+            </div> 
+        </div>
+        <div style="opacity: 0.5;" class="text-center">Copyright © 2023 senjimakankou All Rights Reserved.</div>
+      </footer>
+
+      <script>
+        // navbar burger
+        document.getElementById("showmenu").onclick = function(){menuShow()};
+
+        function menuShow() {
+          document.getElementById("menuitem").classList.toggle("menu-show");
+        }
+
+        // Title
+        $(window).scroll(function() {
+        var hT = $('#title0').offset().top,
+          hH = $('#title0').outerHeight(),
+          wH = $(window).height(),
+          wS = $(this).scrollTop();
+        console.log((hT-wH) , wS);
+        if (wS > (hT+hH-wH)){
+        document.querySelector("#title0").style.clipPath="inset(0 0 0 0)";
+        }
+        });
+
+        var once = true;
+
+        $(window).scroll(function() {
+          var hT = $('#title').offset().top,
+            hH = $('#title').outerHeight(),
+            wH = $(window).height(),
+            wS = $(this).scrollTop();
+          console.log((hT-wH) , wS);
+           if (wS > (hT+hH-wH) && once ){
+          document.querySelector("#title").style.clipPath="inset(0 0 0 0)";
+          once = false
+          }
+          });
+
+         // food/view change
+         function showview(){
+          document.getElementById("view").style.display = "block";
+          document.getElementById("food").style.display = "none";
+          setTimeout(function(){
+          document.getElementById("title").style.clipPath="inset(0 0 0 0)";
+          document.getElementById("title2").style.clipPath="inset(0 100% 0 0)"},600);
+        }
+        function showfood(){
+          document.getElementById("view").style.display = "none";
+          document.getElementById("food").style.display = "block";
+          setTimeout(function(){
+          document.getElementById("title2").style.clipPath="inset(0 0 0 0)";
+          document.getElementById("title").style.clipPath="inset(0 100% 0 0)"},600);
+        }
+
+      </script>
+      
+</body>

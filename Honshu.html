@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本州へ！</title>
+    <link rel="ICON"  href="./JPimg/ICON/LOGO-ICON.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<style type="text/css">
+  body{font-family: 游明朝;}
+  #bgWrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url(./JPimg/ICON/texture.png);
+    z-index: -1;
+  }
+  header div img{
+    height:400px ;width:500px ; 
+  }
+  .headertext{
+    left: 15%;
+    top: 5%;
+  }
+  #headerbg{
+    height:90vh;width: 100%; object-fit:cover;
+  }
+  article{
+    margin-top: 10em;
+    padding-top: 5em; 
+  }
+  .nav2{
+    background-color: rgba(238, 169, 169, 0.8);
+  }
+  .nav2 button{
+    font-size: 1.5vw;
+    font-weight: 900;
+    background-color: transparent;
+    color: white;
+    border-radius: 30px;
+    border: 1px solid white;
+    padding: 5px 30px;
+  }
+  /* title */
+  #title0, #title, #title2{
+    width: 90%;
+    clip-path: inset(0 100% 0 0);
+    margin: 5em auto;
+    color: white;
+    position: relative; 
+    text-align: center;
+    transition: all 2s ease;
+  }
+  #title0 h1{
+    font-size: 5vw;
+    position: absolute;
+    top: 25%;
+    left: 30%;
+  }
+  #title  h1{
+    font-size: 5vw;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+  }
+  #title2 h1{
+    font-size: 5vw;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+  }
+  :root{
+    scroll-padding-top: 80px;
+  }
+  #food{
+    display: none;
+  }
+  section{margin-top: 10em;}
+
+  /* NavBar */
+  .menu{
+    /* background-color:#69B0AC ; */
+    display: flex;
+    height: 80px;
+    width: 100%;
+  }
+  .logo{
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+  }
+  .item{
+    text-decoration: none;
+    color: white;
+    font-weight:900;
+    font-size: 26px;
+    border-right:  1px solid white;
+    text-align: center;
+    flex-grow: 1;
+   
+  }
+  .menuitem{
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+    width: 100%;
+  }
+  .menuitem  a::after {
+    content:'';
+    margin-left: 25%;
+    width: 0;
+    display:block;
+    height: 2px;
+    background-color: white;
+    transition:width .2s ease-in;
+  }
+  .menuitem  a:hover::after {
+    width: 50%;
+  }
+  .showmenu{
+    display: none;
+    margin: auto;
+    font-size: 40px;
+    color: white;
+  }
+  /* footer */
+  #footericon{
+    display: flex;
+    align-items: center;
+  }
+  #footericon img{
+    width: 75%;
+  }
+  #footerbtn {
+    display: flex;
+    flex-direction: column;
+  }
+  footer button{
+    font-size: 16px;
+    background-color: white;
+    border: none;
+    color: gray;
+    border-radius: 10px;
+  }
+  #footerline{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+  }
+  @media (max-width: 576px){
+    article{
+      margin-top: 0em;
+      padding-top: 0em; 
+    }
+    section{
+      margin-top: 0em;
+    }
+    .showmenu{
+      margin-right: 50px;
+      display: block;
+    }
+    .menuitem{
+      background-color: #20604f;
+      position: absolute;
+      top: 80px;
+      text-align: center;
+      display:block;
+      z-index: 10;
+      max-height:0px;
+      overflow: hidden;
+      transition:max-height 1s ;
+    }
+   .item{
+      display: block;
+      color:#69B0AC;
+      padding: 10px 0;
+      border-bottom:1px solid #69B0AC;
+    }
+    .menu-show {
+          max-height: 500px;
+    }
+   
+  }
+   
+</style>
+<body>
+  <div id="bgWrap" style="background-color: #FEDFE1"></div>
+      <!-- Nav -->
+      <nav class="navigation">
+        <div class="menu bg-dark">
+        <a class="logo" href="./AHomeWeb.html"><img src="./JPimg/ICON/LOGO-ICON.png"></a>
+          <div class="menuitem" id="menuitem">
+            <a class="item" href="./Hokkaido.html">北海道</a>
+            <a class="item" href="./Honshu.html">本州</a>
+            <a class="item" href="./Shikoku.html">四國</a>
+            <a class="item" href="./Kyushu.html">九州</a>
+          </div>
+          <span class="showmenu" id="showmenu" >&#9776;</span>
+        </div>
+      </nav>
+
+      <!-- header -->
+      <header class="w-100 position-relative">
+        <div class="position-absolute headertext">
+          <img class="img-fluid" src="./JPimg/本州/brush.png" alt="">
+        </div>
+        <img id="headerbg" src="./JPimg/本州/静岡県 田貫湖の富士山.jpg" alt="">
+      </header>
+
+      <!-- Nav2 -->
+      <nav class="nav2 w-100 p-2 sticky-top d-flex justify-content-evenly text-nowrap">
+          <button onclick="document.location='#title0'">認識本州</button>
+          <button onclick="showview();document.location='#view'">推薦景色</button>
+          <button onclick="showfood();document.location='#food'">推薦美食</button>
+      </nav>
+
+      <!-- Title0 -->
+      <div id="title0">
+        <h1 class="fw-bold">ようこそ本州へ！</h1>
+        <img class="w-100" src="./JPimg/ICON/MainTitleBrush.png" alt="">
+      </div>
+
+      <!-- Map -->
+      <article id="hokkaido" class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <img class="img-fluid" src="./JPimg/本州/Map.png" alt="">
+          </div>
+          <div class="col-sm-6">
+            <div>
+              <h1 class="lh-lg fw-bold">本州 | ほんしゅう</h1>
+              <h3 class="lh-base" >
+                本州島是日本列島中最大的島嶼，其上包含了被稱為東北、關東、中部、近畿與中國的五個地方，包括東京與大阪在內等日本最重要的都會區皆位於本州島上
+                本州是日本最大的島嶼和核心。 它也是世界第七大島。
+                在本州島上，大部分日本人口和大部分主要城市，包括東京首都。 它是日本的中心，本州通過海底隧道和橋樑與其他主要島嶼相連。是一個多山的島嶼，也是該國許多活火山的所在地。 其最著名的山峰是富士山。
+              </h3>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- TitleView  -->
+      <div id="view">
+        <div id="title">
+          <h1 class="fw-bold">推薦景點</h1>
+          <img class="w-100" src="./JPimg/ICON/MainTitleBrush.png" alt="">
+        </div>
+        <section class="container">
+          <div class="row my-5">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/本州/東北 山形県 銀山温泉.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">銀山温泉</h2>
+              <h4 class="lh-lg">銀山溫泉位於山形縣鄉間的銀礦舊址上，是遊客尋幽探秘、領略古代日本風情的理想地點。
+                銀山川兩岸傳統客棧林立，感覺仿佛穿越時空回到了大正時代</h4>
+            </div>
+          </div>
+
+          <div class="row my-5 flex-row-reverse">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/本州/京都府 清水寺.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">清水寺</h2>
+              <h4 class="lh-lg">清水寺可能是京都最受歡迎的寺院，也是日本人心目中的固定裝置。這座寺廟的陽台從一座由13米高的木柱支撐的山脈的側面伸出。
+                從陽台上可以欣賞到京都西面的美景。這是一個觀看日落的吉祥場所，也可以解釋寺廟的浪漫氣氛。。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/本州/静岡県 田貫湖の富士山.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">田貫湖/富士山</h2>
+              <h4 class="lh-lg">田貫湖最大的魅力就是湖面上倒映著的富士山，這種美景又被稱為「逆富士」。天氣晴朗且空氣乾燥的日子裡，
+                湖面上的富士山倒影尤為美麗。春天的櫻花、杜鵑盛開，秋天的紅葉盡染等景觀與富士山相映成趣。
+                遊客還可以在這裡泛舟或遠足，一邊眺望美麗的富士山，一邊享受戶外運動的樂趣。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5 flex-row-reverse">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/本州/本州-稻荷神社.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">伏見稻荷大社</h2>
+              <h4 class="lh-lg">「稻荷神社」堪稱是最貼近日本人生活的神社。
+                據說全國共有3萬座稻荷神社，在日本各地受到所有男女老幼的喜愛。
+                其總本宮便是京都的伏見稻荷大社。
+                自西元711年神明鎮座以來，長達1300年的期間匯集了人們的信仰，被尊崇為保佑五穀豐登、商業興盛、家庭安全、諸願望皆得實現之神。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/本州/岐阜県 岐阜城.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">岐阜城</h2>
+              <h4 class="lh-lg">岐阜城位於金華山的長良川河畔，是擁有日本最宏偉景觀的城池之一。岐阜城地理位置優越、視野開闊，
+                來犯之敵（織田信長最憂慮的事）的蹤跡幾乎暴露無遺當然，也極適合單純地登高賞景。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5 flex-row-reverse">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/本州/長野県 地獄谷野猿公苑.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">地獄谷野猿公苑</h2>
+              <h4 class="lh-lg">長野縣北部一條安靜的峽谷是世界上最獨特的景點之一。 地獄谷野猿公苑（雪猴公園）是日本獼猴的棲息地之一
+                ，遊客有機會近距離觀察這些虛幻的生物。 在冬季，你甚至可以看到牠們浸溫泉取暖。</h4>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Title2&Food -->
+      <div id="food">
+        <div id="title2">
+          <h1 class="fw-bold">推薦美食</h1>
+          <img class="w-100" src="./JPimg/ICON/MainTitleBrush.png" alt="">
+        </div>
+        <section class="container">
+          <div class="row my-5">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/本州/food/烤牛舌.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold">烤牛舌</h2>
+              <h4 class="lh-lg">「烤牛舌」可以說是仙台最具代表性的美食，1948年首間烤牛舌專賣店開幕後便逐漸普及至日本各地
+                ，而仙台市內據說有超過100間牛舌專賣店喔!</h4>
+            </div>
+          </div>
+
+          <div class="row my-5 flex-row-reverse">
+            <div class="col-sm-5">
+              <img class="img-fluid mx-auto d-block" src="./JPimg/本州/food/文字燒.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold">文字燒/もんじゃ焼き</h2>
+              <h4 class="lh-lg">「文字燒」誕生於昭和20年代，適逢二戰後社會物資匱乏，這種以麵粉水加入一些蔬菜、肉類放在鐵板上煎熟的簡單料理便很快普及開來，
+                後來東京月島地區出現第一家文字燒專門店，也讓月島從此成為「文字燒之街」。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5">
+            <div class="col-sm-5"> 
+              <img class="img-fluid mx-auto d-block" src="./JPimg/本州/food/柿葉壽司.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold">柿葉壽司/柿の葉すし</h2>
+              <h4 class="lh-lg">「柿葉壽司」發源於奈良縣及和歌山縣，是用柿葉包裹著鹽漬鯖魚和醋飯捲成的壽司，由於古早時代保存食物不易，人們便使用鹽巴來醃漬魚肉，而柿子葉和醋都具有殺菌效果，
+                所製成的壽司能延長保鮮時間，且會帶有淡淡的柿葉香。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5 flex-row-reverse">
+            <div class="col-sm-5">
+              <img class="img-fluid mx-auto d-block" src="./JPimg/本州/food/湯豆腐.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold">湯豆腐</h2>
+              <h4 class="lh-lg">在擁有優質水源的京都，所製造出的豆腐品質堪稱日本數一數二，因此到訪京都必吃的美食就是「湯豆腐料理」了！帶有濃郁豆香的豆腐放進鍋中燉煮，品嚐時再撒上蔥花、柴魚醬油，能吃到最天然的豆腐美味，
+              ，在京都當地有許多湯豆腐名店，也會推出整套精緻的「豆腐套餐」</h4>
+            </div>
+          </div>
+
+          <div class="row my-5">
+            <div class="col-sm-5">
+              <img class="img-fluid mx-auto d-block" src="./JPimg/本州/food/炸物蛋包飯（ハントンライス）.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold">炸物蛋包飯/ハントンライス</h2>
+              <h4 class="lh-lg">說到金澤，大家應該都會想到金箔冰淇淋，不過當地人首推美食是這道洋食風的「ハントンライス」！「料理結合了人見人愛的歐姆蛋包飯和炸魚肉
+                ，再淋上番茄醬或是白醬、塔塔醬，就成了這道夢幻的庶民美食</h4>
+            </div>
+          </div>
+
+          <div class="row my-5 flex-row-reverse">
+            <div class="col-sm-5">
+              <img class="img-fluid mx-auto d-block" src="./JPimg/本州/food/瓦片蕎麥（瓦そば）.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold">瓦片蕎麥/瓦そば</h2>
+              <h4 class="lh-lg">山口縣不能錯過的當然就是超人氣的「瓦片蕎麥麵」了！以翠綠的抹茶蕎麥麵為主角，將麵條炒出香氣後，放在熱呼呼的瓦片上，在放上豐富的蛋絲、肉片、蔥花，最後擺上海苔和檸檬片
+                ，就成了這道視覺上讓人非常驚艷的料理</h4>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- footer -->
+      <footer class=" bg-dark text-light p-2 w-100">
+        <div id="footerline" class="d-flex justify-content-around text-nowrap mb-3">
+            <div><img src="./JPimg/ICON/LOGO-ICON.png">
+              <span class="ms-1 fw-bold">千島觀光</span>
+            </div>
+            <div id="footericon"><a href=""><img src="./JPimg/ICON/footer icon.png"></a></div>
+            <div id="footerbtn" class="d-flex">
+                <button class="my-2"><i class="bi bi-question-circle-fill me-2"></i>常見問題</button>
+                <button class="my-2"><i class="bi bi-envelope-fill me-2"></i>聯絡我們</button>  
+            </div> 
+        </div>
+        <div style="opacity: 0.5;" class="text-center">Copyright © 2023 senjimakankou All Rights Reserved.</div>
+      </footer>
+
+      <script>
+        // navbar burger
+        document.getElementById("showmenu").onclick = function(){menuShow()};
+
+        function menuShow() {
+          document.getElementById("menuitem").classList.toggle("menu-show");
+        }
+
+        // Title
+        $(window).scroll(function() {
+          var hT = $('#title0').offset().top,
+            hH = $('#title0').outerHeight(),
+            wH = $(window).height(),
+            wS = $(this).scrollTop();
+          console.log((hT-wH) , wS);
+          if (wS > (hT+hH-wH)){
+          document.querySelector("#title0").style.clipPath="inset(0 0 0 0)";
+          }
+          });
+
+          var once = true;
+
+          $(window).scroll(function() {
+            var hT = $('#title').offset().top,
+              hH = $('#title').outerHeight(),
+              wH = $(window).height(),
+              wS = $(this).scrollTop();
+            console.log((hT-wH) , wS);
+            if (wS > (hT+hH-wH) && once ){
+            document.querySelector("#title").style.clipPath="inset(0 0 0 0)";
+            once = false
+            }
+            });
+      
+
+          // food/view change
+        function showview(){
+          document.getElementById("view").style.display = "block";
+          document.getElementById("food").style.display = "none";
+          setTimeout(function(){
+          document.getElementById("title").style.clipPath="inset(0 0 0 0)";
+          document.getElementById("title2").style.clipPath="inset(0 100% 0 0)"},600);
+        }
+        function showfood(){
+          document.getElementById("view").style.display = "none";
+          document.getElementById("food").style.display = "block";
+          setTimeout(function(){
+          document.getElementById("title2").style.clipPath="inset(0 0 0 0)";
+          document.getElementById("title").style.clipPath="inset(0 100% 0 0)"},600);
+        }
+
+      </script>
+
+</body>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日本へ！！</title>
+  <link rel="ICON"  href="./JPimg/ICON/LOGO-ICON.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<style>
+  body{font-family: 游明朝;}
+  #bgWrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url(./JPimg/ICON/texture.png);
+    z-index: -1;
+  }
+  p{font-weight: 600;}
+  h5{font-weight: 900;}
+  h1{font-weight: 900;}
+  .carousel-item img {
+    height: 93vh;
+    object-fit: cover
+  }
+  .carousel-caption {
+    color: white;
+    text-align: center;
+    max-width: 20%;
+    left: 10%;
+    top: 60%;
+    padding: 10px;
+    height: 100%;
+  }
+  .carousel-caption h1 {
+    font-size: 3em;
+  }
+  article {
+    margin-top: 10em;
+  }
+  #title{
+    width: 90%;
+    clip-path: inset(0px 100% 0px 0px);
+    margin: 5em auto;
+    color: white;
+    position: relative; 
+    text-align: center;
+    transition: all 2s ease;
+  }
+  #title h1{
+    font-size: 5vw;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+  }
+  section {
+    margin-top: 10em;
+  }
+  section img {
+    opacity: 0.7;
+  }
+  section img:hover {
+    opacity: 1.0;
+  }
+
+  /* NavBar */
+  .menu{
+    /* background-color:#A8D8B9 ; */
+    display: flex;
+    height: 80px;
+    width: 100%;
+  }
+  .logo{
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+  }
+  .item{
+    text-decoration: none;
+    color: white;
+    font-weight:900;
+    font-size: 26px;
+    border-right:  1px solid white;
+    text-align: center;
+    flex-grow: 1;
+   
+  }
+  .menuitem{
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+    width: 100%;
+  }
+  .menuitem  a::after {
+    content:'';
+    margin-left: 25%;
+    width: 0;
+    display: block;
+    height: 2px;
+    background-color: white;
+    transition:width .2s ease-in;
+  }
+  .menuitem  a:hover::after {
+    width: 50%;
+  }
+  .showmenu{
+    display: none;
+    margin: auto;
+    font-size: 40px;
+    color: white;
+  }
+  /* footer */
+  #footericon{
+    display: flex;
+    align-items: center;
+  }
+  #footericon img{
+    width: 75%;
+  }
+  #footerbtn {
+    display: flex;
+    flex-direction: column;
+  }
+  footer button{
+    font-size: 16px;
+    background-color: white;
+    border: none;
+    color: gray;
+    border-radius: 10px;
+    width: 100%;
+  }
+  #footerline{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+  }
+
+
+   
+  @media (max-width: 576px){
+    .showmenu{
+      margin-right: 50px;
+      display: block;
+    }
+    .menuitem{
+      background-color: #20604f;
+      position: absolute;
+      top: 80px;
+      text-align: center;
+      display:block;
+      z-index: 10;
+      max-height:0px;
+      overflow: hidden;
+      transition:max-height 1s ;
+    }
+   .item{
+      display: block;
+      color:#69B0AC;
+      padding: 10px 0;
+      border-bottom:1px solid #69B0AC;
+    }
+    .menu-show {
+          max-height: 500px;
+    }
+    /* .footerbtn{
+      font-size: 2vw; 
+    } */
+  }
+</style>
+
+<body>
+  <!--背景材質-->
+  <div id="bgWrap" style="background-color: #A5DEE4;"></div>
+  <!-- 導覽列 -->
+  <nav class="navigation sticky-top">
+    <div class="menu bg-dark">
+     <a class="logo" href="./AHomeWeb.html"><img src="./JPimg/ICON/LOGO-ICON.png"></a>
+       <div class="menuitem" id="menuitem">
+         <a class="item" href="./Hokkaido.html">北海道</a>
+         <a class="item" href="./Honshu.html">本州</a>
+         <a class="item" href="./Shikoku.html">四國</a>
+         <a class="item" href="./Kyushu.html">九州</a>
+       </div>
+       <span class="showmenu" id="showmenu" >&#9776;</span>
+    </div>
+  </nav>
+
+  <!-- Carouse -->
+  <div>
+    <div id="carouselExampleAutoplaying" class="carousel slide " data-bs-ride="carousel" data-bs-interval=2000>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="JPimg/北海道/北海道-前田森林公園.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption ">
+            <h1 class="fw-bold text-nowrap">北海道</h1>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="JPimg/本州/山梨県 新倉山浅間公園.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption ">
+            <h1 class="fw-bold text-nowrap">本州</h1>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="JPimg/四國地方/徳島県 うずしおと大鳴門橋.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption ">
+            <h1 class="fw-bold text-nowrap">四國</h1>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="JPimg/九州島/沖縄県 久米島・ハテの浜.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption ">
+            <h1 class="fw-bold text-nowrap">九州</h1>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Map -->
+  <article class="container">
+    <div class="row">
+      <div class="col-sm-5">
+        <img class="img-fluid rounded-4" src="JPimg/ICON/JPMAP.png" alt="">
+      </div>
+      <div class="col-sm-7 lh-base">
+        <h1 class="fw-bold">千島之國，從四大島區分</h1>
+        <p class="ms-4">日本是由北海道、本州、四國、九州等4個大島和約有3900多個小島組成，西臨日本海與朝鮮半島相望、東邊濱臨太平洋，全日本共有47個一級行政區單位為都道府縣（1都1道2府43縣）</p>
+        <ul>
+          <li>
+            <h5>北海道</h5>
+            <p>北海道位於日本的北部，是日本面積最大且唯一以「道」為名的一級行政區，整體位列日本二大島。</p>
+          </li>
+          <li>
+            <h5>本州</h5>
+            <p>本州島是日本列島中最大的島嶼，其上包含了習慣上被稱為東北、關東、中部、近畿與中國的五個地方，包括東京與大阪在內等日本最重要的都會區皆位於本州島上</p>     
+          </li>
+          <li>
+           <h5>四國</h5>
+             <p>四國是四個島嶼中最小的一個，位於九州東部和本州東南部。</p>
+          </li>
+          <li>
+            <h5>九州</h5>
+            <p>又稱九州島，位於日本西南部，為本土四島之一，也是日本第三大島，</p>
+          </li>
+         </ul>
+      </div>
+    </div>
+  </article>
+  <!-- Title -->
+  <div id="title">
+    <h1>地域介紹</h1>
+    <img class="w-100" src="./JPimg/ICON/MainTitleBrush.png" alt="">
+  </div>
+
+  <!-- Section -->
+  <section class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <a href="./Hokkaido.html" target="_blank">
+          <img class="img-fluid mb-5 rounded-4" src="./JPimg/北海道/北海道-白川鄉.jpg" alt="">
+        </a>
+      </div>
+      <div class="col-sm-6">
+        <h1>北海道/ほっかいど</h1>
+        <p class="lh-lg">北海道位於日本的北部，是日本面積最大且唯一以「道」為名的一級行政區，整體位列日本二大島。
+          北海道氣候乾躁涼爽，開發度低，自然資源豐富，春夏花海、秋天楓紅、冬雪流冰，美不勝收。除了自然景觀外，海上生鮮也吸引各方旅人前來嘗鮮，四季風采皆有驚喜。
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <a href="./Honshu.html"target="_blank">
+          <img class="img-fluid mb-5 rounded-4" src="./JPimg/本州/山梨県 霊峰富士.jpg" alt="">
+        </a>
+      </div>
+      <div class="col-sm-6">
+        <h1>本州／ほんしゅう</h1>
+        <p class="lh-lg">本州是日本最大的島，大部分人口和遊客都集中在這裡。因為本州島很大，因此通常被細分為多個更小的區域。由北至南分別是：東北地方 關東地方 中部地方 關西地方 中國地方。
+          本州在日本是最“主要”的島嶼因爲它是最大、擁有最多人口、以及最多旅遊景點的一個島嶼。雖然您可以花很多時間去探索這個地方，但如果您只有兩個星期的時間逗留，這裡有幾個好地方您是絕對不可錯過的。
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <a href="./Shikoku.html"target="_blank">
+          <img class="img-fluid mb-5 rounded-4" src="./JPimg/四國地方/香川県 金刀比羅宮.jpg" alt="">
+        </a>
+      </div>
+      <div class="col-sm-6">
+        <h1>四國/しこく</h1>
+        <p class="lh-lg">四國位於瀨戶內海及太平洋的環抱之間，是日本四大本土島嶼之一。涵蓋香川縣、德島縣、高知縣與愛媛縣，過去各縣名稱為讃岐國、伊予國、土佐國與阿波國，因此被稱為「四國」。
+          這裡充滿了豐富的大自然美景、歷史背景及各式傳統節慶等，來到這裡可以感受其獨特的魅力。
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <a href="./Kyushu.html"target="_blank">
+          <img class="img-fluid mb-5 rounded-4" src="./JPimg/九州島/沖縄県 平久保崎.jpg" alt="">
+        </a>
+      </div>
+      <div class="col-sm-6">
+        <h1>九州／きゅうしゅう</h1>
+        <p class="lh-lg">又稱九州島，位於日本西南部，為本土四島之一，也是日本第三大島，島內包含大分縣、宮崎縣、福岡縣、佐賀縣、長崎縣、熊本縣和鹿兒島縣等7縣。
+          九州島自然資源豐富，交通便利發達，適合各旅人前往觀光旅遊。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class=" bg-dark text-light p-2 w-100">
+    <div id="footerline" class="d-flex justify-content-around text-nowrap mb-3">
+        <div><img src="./JPimg/ICON/LOGO-ICON.png">
+          <span class="ms-3 fw-bold">千島觀光</span>
+        </div>
+        <div id="footericon"><a href=""><img src="./JPimg/ICON/footer icon.png"></a></div>
+        <div id="footerbtn" class="">
+            <button class="my-2"><i class="bi bi-question-circle-fill me-2"></i>常見問題</button>
+            <button class="my-2"><i class="bi bi-envelope-fill me-2"></i>聯絡我們</button>  
+        </div> 
+    </div>
+    <div style="opacity: 0.5;" class="text-center">Copyright © 2023 senjimakankou All Rights Reserved.</div>
+  </footer>
+
+
+  <script>
+    document.getElementById("showmenu").onclick = function(){menuShow()};
+
+    function menuShow() {
+      document.getElementById("menuitem").classList.toggle("menu-show");
+    }
+
+    $(window).scroll(function() {
+    var hT = $('#title').offset().top,
+      hH = $('#title').outerHeight(),
+      wH = $(window).height(),
+      wS = $(this).scrollTop();
+    console.log((hT-wH) , wS);
+    if (wS > (hT+hH-wH)){
+    document.querySelector("#title").style.clipPath="inset(0 0 0 0)";
+    }
+    });
+
+  </script>
+</body>
+
+</html>

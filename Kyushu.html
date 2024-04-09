@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九州へ！</title>
+    <link rel="ICON"  href="./JPimg/ICON/LOGO-ICON.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<style type="text/css">
+  body{font-family: 游明朝;}
+  #bgWrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url(./JPimg/ICON/texture.png);
+    z-index: -1;
+  }
+
+  #headerbg{
+    height:90vh;
+    width: 100%;
+    object-fit:cover;
+  }
+  header{
+    position: relative;
+    overflow: hidden;
+  }
+  #headertext_pc{
+    position: absolute; 
+    left:30%;
+    top: 5%;
+    transform: scale(0, 0);
+    transition: transform 1.5s ease;
+    transition-delay: 0.5s;
+  }
+  #headertext_mobile{
+    position: absolute; 
+    right: 10%;
+    bottom: 50%;
+    transform: scale(0, 0);
+    transition: transform 1.5s ease;
+    transition-delay: 0.5s;
+    display: none;
+  }
+  article{
+    margin-top: 10em;
+    padding-top: 5em; 
+  }
+  .nav2{
+    background-color: rgba(105, 176, 172, 0.8);
+  }
+  .nav2 button{
+    font-size: 1.5vw;
+    font-weight: 900;
+    background-color: transparent;
+    color: white;
+    border-radius: 30px;
+    border: 1px solid white;
+    padding: 5px 30px;
+  }
+  /* title */
+  #title0, #title, #title2{
+    width: 90%;
+    clip-path: inset(0px 100% 0px 0px);
+    margin: 5em auto;
+    color: white;
+    position: relative; 
+    text-align: center;
+    transition: all 2s ease;
+  }
+  #title0 h1{
+    font-size: 5vw;
+    position: absolute;
+    top: 25%;
+    left: 30%;
+  }
+  #title  h1{
+    font-size: 5vw;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+  }
+  #title2 h1{
+    font-size: 5vw;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+  }
+  :root{
+    scroll-padding-top: 80px;
+  }
+  #food{
+    display: none;
+  }
+  section{
+    margin-top: 10em;
+  }
+
+  /* NavBar */
+  .menu{
+    /* background-color:#69B0AC ; */
+    display: flex;
+    height: 80px;
+    width: 100%;
+  }
+  .logo{
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+  }
+  .item{
+    text-decoration: none;
+    color: white;
+    font-weight:900;
+    font-size: 26px;
+    border-right:  1px solid white;
+    text-align: center;
+    flex-grow: 1;
+   
+  }
+  .menuitem{
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+    width: 100%;
+  }
+  .menuitem  a::after {
+    content:'';
+    margin-left: 25%;
+    width: 0;
+    display: block;
+    height: 2px;
+    background-color: white;
+    transition:width .2s ease-in;
+  }
+  .menuitem  a:hover::after {
+    width: 50%;
+  }
+  .showmenu{
+    display: none;
+    margin: auto;
+    font-size: 40px;
+    color: white;
+  }
+  /* footer */
+  #footericon{
+    display: flex;
+    align-items: center;
+  }
+  #footericon img{
+    width: 75%;
+  }
+  #footerbtn {
+    display: flex;
+    flex-direction: column;
+  }
+  footer button{
+    font-size: 16px;
+    background-color: white;
+    border: none;
+    color: gray;
+    border-radius: 10px;
+  }
+  #footerline{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+  }
+  @media (max-width: 576px){
+    #headertext_pc{
+      display: none;
+    }
+    #headertext_mobile{
+      display: block;
+    }
+    article{
+      margin-top: 0em;
+      padding-top: 0em; 
+    }
+    section{
+      margin-top: 0em;
+    }
+    .showmenu{
+      margin-right: 50px;
+      display: block;
+    }
+    .menuitem{
+      background-color: #20604f;
+      position: absolute;
+      top: 80px;
+      text-align: center;
+      display:block;
+      z-index: 10;
+      max-height:0px;
+      overflow: hidden;
+      transition:max-height 1s ;
+    }
+   .item{
+      display: block;
+      color:#69B0AC;
+      padding: 10px 0;
+      border-bottom:1px solid #69B0AC;
+    }
+    .menu-show {
+          max-height: 500px;
+    }
+   
+  }
+   
+</style>
+<body>
+  <div id="bgWrap" style="background-color: #A8D8B9;"></div>
+      <!-- Nav -->
+      <nav class="navigation">
+        <div class="menu bg-dark">
+        <a class="logo" href="./AHomeWeb.html"><img src="./JPimg/ICON/LOGO-ICON.png"></a>
+          <div class="menuitem" id="menuitem">
+            <a class="item" href="./Hokkaido.html">北海道</a>
+            <a class="item" href="./Honshu.html">本州</a>
+            <a class="item" href="./Shikoku.html">四國</a>
+            <a class="item" href="./Kyushu.html">九州</a>
+          </div>
+          <span class="showmenu" id="showmenu" >&#9776;</span>
+        </div>
+      </nav>
+
+      <!-- header -->
+      <header class="w-100">
+        <div>
+          <img id="headertext_pc" class="img-fluid" src="./JPimg/九州島/kyushu_title_2.png" alt="">
+          <img id="headertext_mobile" class="img-fluid" src="./JPimg/九州島/kyushu_title_mobile_2.png" alt="">
+        </div>
+        <img id="headerbg" src="./JPimg/九州島/佐賀県 武雄の流鏑馬.jpg" alt="">
+      </header>
+
+      <!-- Nav2 -->
+      <nav class="nav2 w-100 p-2 sticky-top d-flex justify-content-evenly text-nowrap">
+          <button onclick="document.location='#title0'">認識九州</button>
+          <button onclick="showview();document.location='#view'">推薦景色</button>
+          <button onclick="showfood();document.location='#food'">推薦美食</button>
+      </nav>
+
+      <!-- Title0 -->
+      <div id="title0">
+        <h1 class="fw-bold">ようこそ九州へ！</h1>
+        <img class="w-100" src="./JPimg/ICON/MainTitleBrush.png" alt="">
+      </div>
+
+      <!-- Map -->
+      <article id="hokkaido" class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <img class="img-fluid" src="./JPimg/九州島/九州地圖.png" alt="">
+          </div>
+          <div class="col-sm-6">
+            <div>
+              <h1 class="lh-lg fw-bold">九州 | きゅうしゅう </h1>
+              <h3 class="lh-base">九州是位於日本西南端的島嶼，包括福岡縣、佐賀縣、長崎縣、熊本縣、大分縣、宮崎縣、鹿兒島縣等七個縣。九州是個旅遊非常便利的地方，可以體驗各縣和各地區間的差異，交通四通八達。
+                一次旅行便可以感受到多種多樣的體驗，因此有許多外國遊客對九州流連忘返，多次來到九州。
+              </h3>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- TitleView -->
+      <div id="view">
+        <div id="title">
+          <h1 class="fw-bold">推薦景點</h1>
+          <img class="w-100" src="./JPimg/ICON/MainTitleBrush.png" alt="">
+        </div>
+        <section class="container">
+          <div class="row my-5">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/九州島/鹿児島県 初冬の霧島神宮.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">霧島神宮</h2>
+              <h4 class="lh-lg">譽為「西之日光」的華美寺廟
+                霧島神宮是日本最古老的神社，引人注目的朱紅色外牆和細膩精緻的彩色浮雕
+                ，配上四周翠綠的樹木的背景，享有「西之日光」的美譽。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5 flex-row-reverse">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/九州島/福岡県 夜の門司港駅.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">門司港駅</h2>
+              <h4 class="lh-lg">門司港是福岡縣北部面向關門海峽的港口，從明治初期開港至今達120年，於大正時代與神戶、橫濱合稱「日本三大港」，是當時國際貿易上的重要據點，
+                大商社及銀行均爭相在門司港開分店，當地現今仍保有明治至昭和初期的西式建築及眾多料亭餐廳。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/九州島/佐賀県 武雄の流鏑馬.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">武雄の流鏑馬</h2>
+              <h4 class="lh-lg">擁有835年歷史傳統的流鏑馬，起源於1186年源賴朝為了討伐平家，前往武雄神社祈願，受到武雄神社白鷺使者的鼓舞而得以戰勝
+                ，為了傳達感謝而開啟了流鏑馬騎馬射箭的獻祭儀式。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5 flex-row-reverse">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/九州島/沖縄県 久米島・奥武島の畳石.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">沖縄県/奥武島</h2>
+              <h4 class="lh-lg">奧武島因其新鮮豐富的海產而受到了許多海鮮愛好者的歡迎，除了海鮮之外，天婦羅也是當地的熱門美食
+                ，許多遊客為了能品嚐包裹著輕透麵衣的魚肉和海藻而專程前來此地。</h4>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- Title2Food -->
+      <div id="food">
+        <div id="title2">
+          <h1 class="fw-bold">推薦美食</h1>
+          <img class="w-100" src="./JPimg/ICON/MainTitleBrush.png" alt="">
+        </div>
+        <section class="container">
+          <div class="row my-5">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/九州島/food/生馬肉料理.webp" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold">生馬肉料理</h2>
+              <h4 class="lh-lg">來到熊本縣不可不試的就是生馬肉！事實上在全日本，馬肉生產量第一的縣市就是熊本縣，馬肉的歷史原來已超過400年！熊本市內有非常多馬肉料理專門店，馬肉的特徵為低熱量、
+                高蛋白，若不敢生吃馬肉的話，還可以以燒烤、壽司與火鍋等形式品嚐呢～</h4>
+            </div>
+          </div>
+
+          <div class="row my-5 flex-row-reverse">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/九州島/food/赤牛蓋飯.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">赤牛蓋飯</h2>
+              <h4 class="lh-lg">「赤牛蓋飯」（あか牛丼）。「赤牛」（あか牛）是產自熊本縣的國產名牌牛，富含具有恢復疲勞效果的牛磺酸。
+                牛肉入口即化的滑順口感、多汁卻清爽的回味是「赤牛蓋飯」的一大特徵。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/九州島/food/南蠻雞.jpg" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">南蠻雞</h2>
+              <h4 class="lh-base">宮崎縣發祥的「南蠻雞」（チキン南蛮）是縣民的餐桌不可或缺的經典料理。「南蠻雞」的起源，據說是在名為「倫敦」的西餐廳內的員工餐。
+                縣內有「元祖南蠻雞 直ちゃん」、「味のおぐら」、以及「BistroADEN」等許多南蠻雞名店。
+                外皮酥脆、多汁有彈性的南蠻雞，配上剛煮好的白飯，是只要吃過一次就忘不了的美味。</h4>
+            </div>
+          </div>
+
+          <div class="row my-5 flex-row-reverse">
+            <div class="col-sm-5">
+              <img class="img-fluid" src="./JPimg/九州島/food/佐世保漢堡.webp" alt="">
+            </div>
+            <div class="col-sm-7">
+              <h2 class="fw-bold lh-lg">佐世保漢堡</h2>
+              <h4 class="lh-lg">長崎縣佐世保市位於九州的西北邊，因為有駐日美國海軍基地，讓佐世保市成為日本最早傳進漢堡的地方，而迎合日本人口味的手工漢堡「佐世保漢堡」亦都應運而生。漢堡裡夾著漢堡扒、蛋、芝士、煙肉、洋蔥、
+                生菜與番茄等各式各樣的食材，滿滿的餡料加上特大份量令人垂涎三尺。</h4>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- footer -->
+      <footer class=" bg-dark text-light p-2 w-100">
+        <div id="footerline" class="d-flex justify-content-around text-nowrap mb-3">
+            <div><img src="./JPimg/ICON/LOGO-ICON.png">
+              <span class="ms-1 fw-bold">千島觀光</span>
+            </div>
+            <div id="footericon"><a href=""><img src="./JPimg/ICON/footer icon.png"></a></div>
+            <div id="footerbtn" class="d-flex">
+                <button class="my-2"><i class="bi bi-question-circle-fill me-2"></i>常見問題</button>
+                <button class="my-2"><i class="bi bi-envelope-fill me-2"></i>聯絡我們</button>  
+            </div> 
+        </div>
+        <div style="opacity: 0.5;" class="text-center">Copyright © 2023 senjimakankou All Rights Reserved.</div>
+      </footer>
+
+      <script>
+        // navbar burger
+        document.getElementById("showmenu").onclick = function(){menuShow()};
+
+        function menuShow() {
+          document.getElementById("menuitem").classList.toggle("menu-show");
+        }
+
+        // Title
+        $(window).scroll(function() {
+        var hT = $('#title0').offset().top,
+          hH = $('#title0').outerHeight(),
+          wH = $(window).height(),
+          wS = $(this).scrollTop();
+        console.log((hT-wH) , wS);
+        if (wS > (hT+hH-wH)){
+        document.querySelector("#title0").style.clipPath="inset(0 0 0 0)";
+        }
+        });
+
+        var once = true;
+
+        $(window).scroll(function() {
+          var hT = $('#title').offset().top,
+            hH = $('#title').outerHeight(),
+            wH = $(window).height(),
+            wS = $(this).scrollTop();
+          console.log((hT-wH) , wS);
+           if (wS > (hT+hH-wH) && once ){
+          document.querySelector("#title").style.clipPath="inset(0 0 0 0)";
+          once = false
+          }
+          });
+          
+         // food/view change
+         function showview(){
+          document.getElementById("view").style.display = "block";
+          document.getElementById("food").style.display = "none";
+          setTimeout(function(){
+          document.getElementById("title").style.clipPath="inset(0 0 0 0)";
+          document.getElementById("title2").style.clipPath="inset(0 100% 0 0)"},600);
+        }
+        function showfood(){
+          document.getElementById("view").style.display = "none";
+          document.getElementById("food").style.display = "block";
+          setTimeout(function(){
+          document.getElementById("title2").style.clipPath="inset(0 0 0 0)";
+          document.getElementById("title").style.clipPath="inset(0 100% 0 0)"},600);
+        }
+
+        // showheadtext
+        setTimeout
+        (function(){document.getElementById("headertext_pc").style.transform="scale(1, 1)";},1)
+        setTimeout
+        (function(){document.getElementById("headertext_mobile").style.transform="scale(1, 1)";},1)
+       
+       
+      </script>
+      
+</body>
